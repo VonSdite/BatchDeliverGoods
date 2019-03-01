@@ -1,0 +1,33 @@
+{
+    "manifest_version": 2,
+    "version": "1.0.1",
+    "name": "BatchDeliverGoods",
+    "description": "用于批量发货",
+    "icons":
+    {
+        "16": "img/发货.png",
+        "48": "img/发货.png",
+        "128": "img/发货.png"
+    },
+    "homepage_url": "https://vonsdite.cn",
+    "web_accessible_resources": ["js/inject.js"],
+    "background":
+    {
+        "scripts": ["js/background.js"],
+        "persistent": false
+    },
+    "permissions": ["declarativeContent"],
+    "page_action":
+    {
+        "default_icon": "img/发货.png",
+        "default_title": "BatchDeliverGoods"
+    }, 
+    "content_scripts": 
+    [
+        {
+            "matches": ["*://*/user/apiExtOrder/list"],
+            "js": ["js/content-script.js"],
+            "run_at": "document_end"
+        }
+    ]
+}
